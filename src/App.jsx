@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {Link,Routes,Route,useNavigate,useParams} from 'react-router-dom';
 import axios from 'axios';
 
-const api=axios.create({baseURL:import.meta.env.VITE_API_URL||'http://localhost:8080/api',withCredentials:true,withXSRFToken:true,xsrfCookieName:'XSRF-TOKEN',xsrfHeaderName:'X-XSRF-TOKEN'});
+const api=axios.create({baseURL:import.meta.env.VITE_API_URL||'https://emergency-responce-backend.onrender.com/api',withCredentials:true,withXSRFToken:true,xsrfCookieName:'XSRF-TOKEN',xsrfHeaderName:'X-XSRF-TOKEN'});
 function App(){
  const [me,setMe]=useState(null),[error,setError]=useState('');
  const refresh=()=>api.get('/auth/me').then(r=>setMe(r.data)).catch(()=>setMe(null));
